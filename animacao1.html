@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<style>
+    #container {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        background: yellow;
+        border: 3px solid black;
+        border-radius: 10px;
+    } /* 400px - 50px = 350px */
+
+    #animar {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-color: red;
+        border-radius: 7px;
+    }
+</style>
+<body>
+
+<p>
+    <button onclick="minhaAnimacao()">Mover quadradinho</button>
+</p> 
+
+<div id ="container">
+  <div id ="animar"></div>
+</div>
+
+<script>
+    function minhaAnimacao() {
+
+        var elem = document.getElementById("animar");   
+        var pos = 0;
+        var id = setInterval(frame, 10); // faça a função frame a cada 10 milissegundos (0.0010s)
+        
+        function frame() {
+        
+            if (pos == 350) { // se a posição já  atingiu a 350px...
+            
+                clearInterval(id); // pare de executar a função frame a cada 1 segundo  
+            
+            } else { // senão, continue incrementando a posição
+            
+                pos++; 
+                elem.style.top = pos + "px"; // distância do topo
+                elem.style.left = pos + "px"; // distância da esquerda
+            
+            }
+        }
+    }
+
+    // OBS: 1000 ms = 1s
+</script>
+
+</body>
+</html>
